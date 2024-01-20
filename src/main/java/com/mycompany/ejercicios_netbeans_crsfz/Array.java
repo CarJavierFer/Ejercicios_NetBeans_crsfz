@@ -2,28 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.ejercicios_netbeans_crsfz;
+
+import java.util.LinkedList;
+import java.util.Collections;
 
 /**
- * @author crsfz (Carlos Javier Ferrer Zapata)
- * Estructura de datos que nos permite alamcenar una gran cantidad de datos de un mismo tipo
- * Encapsulado
+ *
+ * @author crsfz
+ * El programa crea una lista enlazada (LinkedList) con valores del 1 al 7
+ * baraja los elementos de la lista
+ * los almacena en un array y luego imprime los elementos barajados en la consola
+ * Este ejercicio muestra el uso de colecciones en Java, específicamente la clase LinkedList y la utilidad Collections.shuffle
  */
 
 
-public class Array {
-        private static final int MAXVAL = 7;
-        private Integer[] result;
-        
-        public static void main(String[] args) {
-            new Array().run();
+public class Valores {
+
+      public static void main(String[] args) {
+        // Crear una lista enlazada con valores del 1 al 7
+        LinkedList<Integer> listaEnlazada = new LinkedList<>();
+        for (int i = 1; i <= 7; i++) {
+            listaEnlazada.add(i);
         }
-     
-        public void run() {
-            java.util.LinkedList<Integer> l = new java.util.LinkedList<Integer>();
-            for (int i = 0; i < MAXVAL; l.add(++i));
-            java.util.Collections.shuffle(l);
-            result = l.toArray(new Integer[0]);
-            for (Integer i : result) System.out.println(i);
+
+        // Barajar los elementos de la lista
+        Collections.shuffle(listaEnlazada);
+
+        // Almacenar los elementos barajados en un array
+        Integer[] arrayBarajado = listaEnlazada.toArray(new Integer[0]);
+
+        // Imprimir los elementos barajados en la consola
+        System.out.println("Elementos barajados:");
+        for (Integer elemento : arrayBarajado) {
+            System.out.println(elemento);
         }
+    }
 }
+
